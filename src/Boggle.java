@@ -4,14 +4,16 @@ import java.util.Stack;
 
 public class Boggle {
 
+    private static char[][] charBoard;
     private static Trie dictionaryTrie;
+    private static ArrayList<String> goodWords;
     public static String[] findWords(char[][] board, String[] dictionary) {
 
-        ArrayList<String> goodWords = new ArrayList<String>();
 
         // TODO: Complete the function findWords(). Add all words that are found both on the board
         //  and in the dictionary.
-
+        goodWords = new ArrayList<String>();
+        charBoard = board;
         dictionaryTrie = new Trie();
         for (String words : dictionary){
             dictionaryTrie.insert(words);
@@ -31,30 +33,11 @@ public class Boggle {
                 valid[i][j] = true;
             }
         }
-
-        //until we hit end of trie/stack is empty
-        while (!locations.empty()){
-            //north
-            if (isValid(curx, cury-1, valid)){
-
+        for (int i = 0; i < board.length; i++){
+            for (int j = 0; j < board[1].length; j++){
+                dfs(i,j,"",valid);
             }
-            //east
-            if (isValid(curx+1, cury, valid)){
-
-            }
-            //south
-            if (isValid(curx, cury+1, valid)){
-
-            }
-            //west
-            if (isValid(curx-1, cury, valid)){
-
-            }
-
-
         }
-
-
 
         // Convert the list into a sorted array of strings, then return the array.
         String[] sol = new String[goodWords.size()];
@@ -63,25 +46,41 @@ public class Boggle {
         return sol;
     }
 
-    public void dfs (int x, int y, String word, boolean[][] valid){
+    public static void dfs (int x, int y, String word, boolean[][] valid){
         if (!isValid(x,y,valid)){
             return;
         }
+        word += charBoard[x][y];
         //if all node children are null/end of trie
-        if (){
+        if (!dictionaryTrie.isNotNull(word)){
             return;
         }
+        if (dictionaryTrie.isWord(word)){
+            goodWords.add(word);
+        }
+        valid[x][y] = false;
+        dfs(x,y-1,word,valid);
+        dfs(x+1,y,word,valid);
+        dfs(x,y+1,word,valid);
+        dfs(x-1,y,word,valid);
+        valid[x][y] = true;
+      //  dfs(row, col, word):
+       // if we have been here before, return
+        //if this word is not a valid prefix, return
+         //       mark this square as visited
+        //recurse up, down, left, right with updated word
+        //mark this square as not visited
 
 
     }
 
     public static boolean isValid (int x, int y, boolean[][] valid){
-        if (x < 0 || x > valid.length){
+        if (x < 0 || x > valid.length-1){
             return false;
         }
-        else if (y < 0 || y > valid[1].length){
+        else if (y < 0 || y > valid[1].length-1){
             return false;
         }
-        return true;
+        else return valid[x][y];
     }
 }

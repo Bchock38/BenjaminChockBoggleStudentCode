@@ -13,10 +13,25 @@ public class Trie {
         return nodeGet(root,toLookUp,0);
     }
 
+    public boolean isNotNull(String toLookUp){
+        Node node = nodeGet2(root, toLookUp, 0);
+        if (node == null){
+            return false;
+        }
+        return true;
+    }
+
+    public boolean isWord(String toLookup){
+        Node node = nodeGet2(root,toLookup,0);
+        return node.isword;
+    }
 
     private Node nodeGet2 (Node currentNode, String toLookUp, int depth){
         if (depth == toLookUp.length()){
             return currentNode;
+        }
+        else if (currentNode == null){
+            return null;
         }
         return nodeGet2(currentNode.next[(int)toLookUp.charAt(depth) - 'a'], toLookUp, depth+1);
     }

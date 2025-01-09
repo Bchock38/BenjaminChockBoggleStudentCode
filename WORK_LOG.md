@@ -1,9 +1,13 @@
-Name: YOUR NAME HERE
+Name: Benjamin Chock
 
-| Date    |  Time  |                                     Update |
-|:--------|:------:|-------------------------------------------:|
-| April 5 | 9-10pm | I tried to write abstract, efficient code. |
-|         |        |                                            |
+| Date      |     Time     |                                                                                                                                                                                                                                                                                               Update |
+|:----------|:------------:|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------:|
+| April 5   |    9-10pm    |                                                                                                                                                                                                                                                           I tried to write abstract, efficient code. |
+| January 6 |  9:40-9:55   |                                                                                                                                                    Started bainstorming what to potential do. Decided to use DFS since that was what I was trying to do on my final and I thought it was a good idea |
+| January 7 |   2:15- 3    |                                                   Continued working on my boggle. Created a Trie class to hold all my dictionary words. Also created a check method that checks for whether the new square is valid in the board and a check method for wether the square is valid in the dictionary |
+| January 9 |   10-10:40   |                                                                                                                                                                                                   Finalised my first attempt for boggle. Finished Trie and all its methods and fnished my dfs method |
+| January 9 | 12:35 - 1:15 | Tried my code turns out their were a couple out of bound errors from not have my valid check for board length -1 instead of board length. ALso noticed typo where I did word += word + new charcater instead of just word + new character. Now the code currently passes the correct small test case |
+|           |              |                                                                                                                                                                                                                                                                                                      |
 
 
 To add a new row to the table, click into a cell and then hit shift-enter.

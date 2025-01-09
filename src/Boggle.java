@@ -7,6 +7,7 @@ public class Boggle {
     private static char[][] charBoard;
     private static Trie dictionaryTrie;
     private static ArrayList<String> goodWords;
+    private static Trie goodTrie;
     public static String[] findWords(char[][] board, String[] dictionary) {
 
 
@@ -15,6 +16,7 @@ public class Boggle {
         goodWords = new ArrayList<String>();
         charBoard = board;
         dictionaryTrie = new Trie();
+        goodTrie = new Trie();
         for (String words : dictionary){
             dictionaryTrie.insert(words);
         }
@@ -56,7 +58,11 @@ public class Boggle {
             return;
         }
         if (dictionaryTrie.isWord(word)){
-            goodWords.add(word);
+            if (!goodTrie.lookUp(word)){
+                goodTrie.insert(word);
+                goodWords.add(word);
+            }
+
         }
         valid[x][y] = false;
         dfs(x,y-1,word,valid);

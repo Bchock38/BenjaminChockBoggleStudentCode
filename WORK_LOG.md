@@ -8,6 +8,7 @@ Name: Benjamin Chock
 | January 9 |   10-10:40   |                                                                                                                                                                                                   Finalised my first attempt for boggle. Finished Trie and all its methods and fnished my dfs method |
 | January 9 | 12:35 - 1:15 | Tried my code turns out their were a couple out of bound errors from not have my valid check for board length -1 instead of board length. ALso noticed typo where I did word += word + new charcater instead of just word + new character. Now the code currently passes the correct small test case |
 | January 9 | 1:15 - 1:27  |                                                                                                                                                                        Forgot to check for duplicate words. After adding a second trie for checking for duplicate words it now passes all test cases |
+| January 9 |  1:30-1:40   |                                                                                                                                                                                                                                                                                       Added comments |
 
 
 To add a new row to the table, click into a cell and then hit shift-enter.
